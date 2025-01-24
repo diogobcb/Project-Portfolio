@@ -1,27 +1,27 @@
 #include "libft.h"
 
-int	ft_isalnum(int c)
+//The function ft_isalnum checks if a given integer corresponds to an alphanumeric character, which includes uppercase and lowercase letters as well as digits.
+int	ft_isalnum(int n)
 {
-	return (ft_isalpha(c) || ft_isdigit(c));
+	if ((n >= 'A' && n <= 'Z') || (n >= 'a' && n <= 'z')
+			|| (n >= '0' && n <= '9'))
+			return (1);
+	else		
+			return (0);
 }
-/* 
-int main(int argc, char **argv)
+
+/*
+int	main(void)
 {
-	(void)argc;
+	char	c;
 	
-	printf("\n\t>>> USING isalnum() <<<\n\n");
-	printf("Sending \'%c\'\n", argv[1][0]);
-	
-	if (isalnum(argv[1][0]))
-		printf("The char \'%c\' is alphanumeric.\n", argv[1][0]);
-	else
-		printf("The char \'%c\' is not alphanumeric.\n", argv[1][0]);
-	
-	printf("\n\t>>> USING ft_isalnum() <<<\n\n");
-	printf("Sending \'%c\'\n", argv[1][0]);
-	
-	if (ft_isalnum(argv[1][0]))
-		printf("The char \'%c\' is alphanumeric.\n", argv[1][0]);
-	else
-		printf("The char \'%c\' is not alphanumeric.\n", argv[1][0]);
-} */
+	c = 'H';
+	printf ("%d\n", ft_isalnum(c));
+    c = 'x';
+    printf ("%d\n", ft_isalnum(c));
+    c = '+';
+    printf ("%d\n", ft_isalnum(c));
+    c = '3';
+    printf ("%d\n", ft_isalnum(c));
+    return (0);
+}*/

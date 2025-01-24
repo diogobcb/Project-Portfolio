@@ -1,27 +1,23 @@
 #include "libft.h"
 
-int	ft_isalpha(int c)
+//This function checks if a given integer corresponds to an ASCII alphabetic character (either uppercase or lowercase).
+int	ft_isalpha(int n)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	if ((n >= 'A' && n <= 'Z') || (n >= 'a' && n <= 'z'))
+		return (1);
+	else	
+		return (0);
 }
-/* 
-int main(int argc, char **argv)
+/*
+int    main(void)
 {
-	(void)argc;
-	
-	printf("\n\t>>> USING isalpha() <<<\n\n");
-	printf("Sending \'%c\'\n", argv[1][0]);
-	
-	if (isalpha(argv[1][0]))
-		printf("The char \'%c\' is alphabetic.\n", argv[1][0]);
-	else
-		printf("The char \'%c\' is not alphabetic.\n", argv[1][0]);
-	
-	printf("\n\t>>> USING ft_isalpha() <<<\n\n");
-	printf("Sending \'%c\'\n", argv[1][0]);
-	
-	if (ft_isalpha(argv[1][0]))
-		printf("The char \'%c\' is alphabetic.\n", argv[1][0]);
-	else
-		printf("The char \'%c\' is not alphabetic.\n", argv[1][0]);
-} */
+    char    c;
+
+    c = 'C';
+    printf ("%d\n", ft_isalpha(c));
+    c = 'i';
+    printf ("%d\n", ft_isalpha(c));
+    c = '*';
+    printf ("%d\n", ft_isalpha(c));
+    return (0);
+}*/

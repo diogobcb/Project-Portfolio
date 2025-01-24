@@ -1,67 +1,20 @@
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+//The ft_calloc function is a custom implementation of the calloc function in C, which allocates memory for an array of n elements, each of size bytes, and initializes all bytes in the allocated storage to zero.
+void	*ft_calloc(size_t n, size_t size)
 {
-	void	*buf;
-	size_t	total;
+	char				*mem_alloc;
+	size_t				i;
 
-	total = nmemb * size;
-	buf = malloc(total);
-	if (!buf)
+	i = 0;
+	mem_alloc = (char *)malloc(n * size);
+	if (mem_alloc == NULL)
 		return (NULL);
-	ft_bzero(buf, total);
-	return (buf);
-}
-/* 
-void print_array(void *ptr, size_t jump, int n)
-{
-	printf("{ ");
-	for(int i = 0; i < n; i++)
+	while (i < n * size)
 	{
-		if(jump == 4)
-			printf("%d ", ((int *)ptr)[i]);
-		else
-			printf("0x%02X ", ((char *)ptr)[i]);
+		mem_alloc[i] = 0;
+		i++;
 	}
-	printf("}\n");
+	return ((void *)mem_alloc);
 }
 
-int main(void)
-{
-	int *t1 = NULL;
-	int *t2 = NULL;
-	size_t n1 = 10;
-	
-	char *t3 = NULL;
-	char *t4 = NULL;
-	size_t n2 = 1;
-	
-	printf("\n\t>>> TEST1: USING calloc() <<<\n\n");
-	
-	t1 = calloc(n1, sizeof(int));
-	printf("Result:\n\ttest1 =  ");
-	print_array(t1, sizeof(int), n1);
-	
-	printf("\n\t>>> TEST1: USING ft_calloc() <<<\n\n");
-	
-	t2 = ft_calloc(n1, sizeof(int));
-	printf("Result:\n\ttest1 =  ");
-	print_array(t2, sizeof(int), n1);
-	
-	printf("\n\t>>> TEST2: USING calloc() <<<\n\n");
-	
-	t3 = calloc(n1, sizeof(char));
-	printf("Result:\n\ttest2 =  ");
-	print_array(t3, sizeof(char), n2);
-	
-	printf("\n\t>>> TEST2: USING ft_calloc() <<<\n\n");
-	
-	t4 = ft_calloc(n1, sizeof(char));
-	printf("Result:\n\ttest2 =  ");
-	print_array(t4, sizeof(char), n2);
-
-	free(t1);
-	free(t2);
-	free(t3);
-	free(t4);
-} */

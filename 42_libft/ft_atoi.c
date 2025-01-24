@@ -1,44 +1,35 @@
 #include "libft.h"
 
-static int	ft_isspace(char c)
-{
-	return (c == '\f' || c == '\n'
-		|| c == '\r' || c == '\t'
-		|| c == '\v' || c == ' ');
+//The ft_atoi function converts a string representation of an integer to an actual integer value, handling optional leading whitespace and an optional sign.
+int ft_atoi(const char *str) {
+    int res = 0;
+    int signal = 1;
+    int i = 0;
+
+    // Skip whitespace characters
+    while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+        i++;
+
+    // Check for sign
+    if (str[i] == '-' || str[i] == '+') {
+        signal = (str[i] == '-') ? -1 : 1;
+        i++;
+    }
+
+    // Convert numeric characters to integer
+    while (str[i] >= '0' && str[i] <= '9') {
+        res = res * 10 + (str[i] - '0');
+        i++;
+    }
+
+    return res * signal;
 }
 
-int	ft_atoi(const char *nptr)
+/*
+int	main()
 {
-	int		i;
-	int		res;
-	int		signal;
-
-	i = 0;
-	res = 0;
-	signal = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			signal = -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-		res = res * 10 + nptr[i++] - '0';
-	return (signal * res);
-}
-/* 
-int main(int argc, char **argv)
-{
-	(void) argc;
-
-	printf("\n\t>>> USING ft_atoi() <<<\n\n");
-	printf("Sending str = \'%s\'\n", argv[1]);
-	printf("Resulting in: %d\n", ft_atoi(argv[1]));
-	
-	printf("\n\t>>> USING atoi() <<<\n\n");
-	printf("Sending str = \'%s\'\n", argv[1]);
-	printf("Resulting in: %d\n", atoi(argv[1]));
-}
- */
+	char str[] = "42melhorescoladomundo";
+	int c = ft_atoi(str);
+	printf("%d\n", c);
+	return (0);
+}*/
